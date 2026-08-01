@@ -57,6 +57,10 @@ class FortifyServiceProvider extends ServiceProvider
             );
         });
 
+        Fortify::twoFactorChallengeView(function () {
+            return view('pages.auth.two-factor-challenge');
+        });
+
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by(
                 (string) $request->session()->get('login.id')
