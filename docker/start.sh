@@ -17,9 +17,9 @@ mkdir -p \
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R 775 storage bootstrap/cache
 
-php artisan package:discover --ansi
-php artisan optimize:clear
+php artisan config:clear
 php artisan migrate --force
 php artisan storage:link || true
+php artisan config:cache
 
 exec apache2-foreground
