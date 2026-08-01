@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer components {
+    .auth-shell {
+        @apply flex min-h-screen items-center justify-center bg-[#443e50] px-5 py-10 text-white;
+    }
+
+    .auth-panel {
+        @apply w-full max-w-[390px];
+    }
+
+    .auth-title {
+        @apply text-3xl font-black tracking-tight text-white;
+    }
+
+    .auth-subtitle {
+        @apply mt-2 text-sm font-medium text-white/90;
+    }
+
+    .auth-field {
+        @apply grid gap-2;
+    }
+
+    .auth-field>span {
+        @apply text-xs font-extrabold text-white;
+    }
+
+    .auth-field input,
+    .auth-phone-row input,
+    .auth-password-wrap input {
+        @apply h-11 w-full rounded-lg border border-transparent bg-[#5a5365] px-3 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-[#fff91f] focus:ring-2 focus:ring-[#fff91f]/20;
+    }
+
+    .auth-password-wrap {
+        @apply relative;
+    }
+
+    .auth-password-wrap input {
+        @apply pr-11;
+    }
+
+    .auth-password-toggle {
+        @apply absolute right-3 top-1/2 -translate-y-1/2 text-sm text-white/70 transition hover:text-white;
+    }
+
+    .auth-phone-row {
+        @apply flex overflow-hidden rounded-lg bg-[#5a5365];
+    }
+
+    .auth-country-code {
+        @apply flex min-w-[90px] items-center gap-2 border-r border-white/10 px-3 text-sm text-white;
+    }
+
+    .auth-phone-row input {
+        @apply rounded-none bg-transparent;
+    }
+
+    .auth-checkbox-row {
+        @apply flex items-start gap-3 text-xs font-medium text-white;
+    }
+
+    .auth-checkbox-row input {
+        @apply mt-0.5 h-4 w-4 shrink-0 rounded border border-white/50 bg-transparent accent-[#fff91f];
+    }
+
+    .auth-checkbox-row a,
+    .auth-inline-link,
+    .auth-switch-text a {
+        @apply font-extrabold text-[#fff91f] transition hover:text-white;
+    }
+
+    .auth-primary-button {
+        @apply flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#fff91f] px-4 text-sm font-extrabold text-[#443e50] transition hover:-translate-y-0.5 hover:bg-[#fff64a] active:translate-y-0;
+    }
+
+    .auth-switch-text {
+        @apply mt-7 text-center text-sm font-semibold text-white;
+    }
+
+    .auth-divider {
+        @apply my-8 flex items-center gap-4 text-center text-sm font-semibold text-white;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+        content: '';
+        @apply h-px flex-1 bg-white/15;
+    }
+
+    .auth-google-button {
+        @apply flex h-11 w-full items-center justify-center gap-3 rounded-lg border border-white/10 bg-transparent px-4 text-sm font-extrabold text-white transition hover:border-white/30 hover:bg-white/5;
+    }
+
+    .auth-alert {
+        @apply mb-5 rounded-lg border px-4 py-3 text-sm font-semibold;
+    }
+
+    .auth-alert-error {
+        @apply border-red-300/40 bg-red-500/15 text-red-100;
+    }
+
+    .auth-alert-success {
+        @apply border-green-300/40 bg-green-500/15 text-green-100;
+    }
+
+    .cf-turnstile {
+        @apply max-w-full overflow-hidden;
+    }
+}
