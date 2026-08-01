@@ -55,17 +55,20 @@ RUN npm ci
 
 COPY . .
 
-RUN composer dump-autoload --optimize \
-    && php artisan package:discover --ansi \
-    && npm run build \
-    && rm -rf node_modules \
-    && mkdir -p \
-        storage/framework/cache/data \
-        storage/framework/sessions \
-        storage/framework/views \
-        storage/logs \
-        bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache \
+RUN mkdir -p \
+    storage/framework/cache/data \
+    storage/framework/sessions \
+    storage/framework/views \
+    storage/logs \
+    bootstrap/cache
+
+RUN composer dump-autoload --optimize --no-scripts
+
+RUN npm run build
+
+RUN rm -rf node_modules
+
+RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
 COPY docker/start.sh /usr/local/bin/start-render
